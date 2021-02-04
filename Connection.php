@@ -184,11 +184,11 @@ class Connection extends Component
             // Make sure that nodes have an 'http_address' property, which is not the case if you're using AWS
             // Elasticsearch service (at least as of Oct., 2015). - TO BE VERIFIED
             // Temporary workaround - simply ignore all invalid nodes
-            if (!isset($node['http']['publish_address'])) {
-                unset($nodes[$key]);
-            }
-            $node['http_address'] = $node['http']['publish_address'];
-
+            //if (!isset($node['http']['publish_address'])) {
+            //    unset($nodes[$key]);
+            //}
+            //$node['http_address'] = $node['http']['publish_address'];
+            $node['http_address'] = $host;
             //Protocol is not a standard ES node property, so we add it manually
             $node['protocol'] = $this->defaultProtocol;
         }
